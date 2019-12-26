@@ -24,7 +24,7 @@ end
 class RuMouse
   def press x, y, button = 1
     display = X11.XOpenDisplay(0)
-    puts display
+    puts "Display: #{display}"
     root = X11.XDefaultRootWindow(display)
 
     move x,y
