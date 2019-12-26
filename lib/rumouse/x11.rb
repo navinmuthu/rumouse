@@ -24,6 +24,7 @@ end
 class RuMouse
   def press x, y, button = 1
     display = X11.XOpenDisplay(0)
+    puts display
     root = X11.XDefaultRootWindow(display)
 
     move x,y
@@ -43,9 +44,9 @@ class RuMouse
     X11.XFlush(display)
     X11.XCloseDisplay(display)
   end
-  
+
   def click x, y, button = 1, n = 1
-    n.times do 
+    n.times do
       press x, y, button
       release x, y, button
     end
@@ -83,7 +84,7 @@ class RuMouse
     x = X11.XWidthOfScreen(screen)
     y = X11.XHeightOfScreen(screen)
     X11.XCloseDisplay(display)
-    
+
     {x: x, y: y}
   end
 end
